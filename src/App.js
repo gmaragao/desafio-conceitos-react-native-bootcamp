@@ -22,13 +22,10 @@ export default function App() {
 
   
   async function handleLikeRepository(id) {
-    // Implement "Like Repository" functionality
     const index = repositories.findIndex(item => item.id === id); 
-    console.log('INDEX: ', index)
     let repo = repositories[index];
     const response = await api.post(`repositories/${id}/like`);
     repo = response.data;
-    console.log('REPO ATUALIZADO', repo);
     repositories[index] = repo;
     const updatedRepos = repositories;
 
